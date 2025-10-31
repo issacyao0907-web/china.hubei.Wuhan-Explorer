@@ -470,17 +470,27 @@
                         Subscribe to our newsletter for exclusive travel guides, special offers, and the latest updates on Wuhan's tourism scene.
                     </p>
 
-                    <form class="space-y-6" id="contactForm">
+                    <!-- START OF FORM MODIFICATION FOR NETLIFY FORMS -->
+                    <!-- 1. Added 'data-netlify="true"' and 'name="contact"' attributes to the form tag -->
+                    <!-- 2. Added 'netlify-honeypot' field for spam prevention -->
+                    <!-- 3. Added 'name' attributes to all input, select, and textarea fields -->
+                    <!-- 4. Removed the JavaScript event listener for form submission as Netlify handles it -->
+                    <form class="space-y-6" name="contact" method="POST" data-netlify="true">
+                        <!-- Netlify honeypot for spam detection - keep this hidden -->
+                        <p class="hidden">
+                            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                        </p>
+
                         <div class="grid md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium mb-2">Full Name</label>
-                                <input type="text" required 
+                                <input type="text" required name="full_name"
                                        class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
                                        placeholder="John Doe">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium mb-2">Email Address</label>
-                                <input type="email" required 
+                                <input type="email" required name="email_address"
                                        class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
                                        placeholder="john@example.com">
                             </div>
@@ -488,7 +498,7 @@
 
                         <div>
                             <label class="block text-sm font-medium mb-2">Country of Origin</label>
-                            <select required 
+                            <select required name="country_of_origin"
                                     class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors">
                                 <option value="">Select your country</option>
                                 <option value="USA">United States</option>
@@ -507,19 +517,19 @@
                             <label class="block text-sm font-medium mb-2">Travel Interests</label>
                             <div class="grid md:grid-cols-2 gap-2">
                                 <label class="flex items-center">
-                                    <input type="checkbox" class="text-accent focus:ring-accent">
+                                    <input type="checkbox" name="interests[]" value="Historical Sites" class="text-accent focus:ring-accent">
                                     <span class="ml-2 text-sm">Historical Sites</span>
                                 </label>
                                 <label class="flex items-center">
-                                    <input type="checkbox" class="text-accent focus:ring-accent">
+                                    <input type="checkbox" name="interests[]" value="Food & Cuisine" class="text-accent focus:ring-accent">
                                     <span class="ml-2 text-sm">Food & Cuisine</span>
                                 </label>
                                 <label class="flex items-center">
-                                    <input type="checkbox" class="text-accent focus:ring-accent">
+                                    <input type="checkbox" name="interests[]" value="Nature & Parks" class="text-accent focus:ring-accent">
                                     <span class="ml-2 text-sm">Nature & Parks</span>
                                 </label>
                                 <label class="flex items-center">
-                                    <input type="checkbox" class="text-accent focus:ring-accent">
+                                    <input type="checkbox" name="interests[]" value="Cultural Experiences" class="text-accent focus:ring-accent">
                                     <span class="ml-2 text-sm">Cultural Experiences</span>
                                 </label>
                             </div>
@@ -527,7 +537,7 @@
 
                         <div>
                             <label class="block text-sm font-medium mb-2">Message</label>
-                            <textarea rows="4" 
+                            <textarea rows="4" name="message"
                                       class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
                                       placeholder="Tell us about your travel plans or questions..."></textarea>
                         </div>
@@ -537,6 +547,7 @@
                             <i class="fa fa-paper-plane mr-2"></i>Get Free Travel Guide
                         </button>
                     </form>
+                    <!-- END OF FORM MODIFICATION FOR NETLIFY FORMS -->
                 </div>
 
                 <div class="space-y-8">
@@ -559,270 +570,4 @@
                                     <i class="fa fa-phone text-white"></i>
                                 </div>
                                 <div>
-                                    <p class="font-medium">Phone</p>
-                                    <p class="text-gray-300">+86 27 1234 5678</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-cultural rounded-full flex items-center justify-center mr-4">
-                                    <i class="fa fa-map-marker text-white"></i>
-                                </div>
-                                <div>
-                                    <p class="font-medium">Office Address</p>
-                                    <p class="text-gray-300">Wuhan Tourism Bureau, Wuchang District</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Social Media -->
-                    <div class="bg-gray-800 rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold mb-6">Follow Us</h3>
-                        <div class="grid grid-cols-4 gap-4">
-                            <a href="#" class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
-                                <i class="fa fa-facebook text-white"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
-                                <i class="fa fa-twitter text-white"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
-                                <i class="fa fa-instagram text-white"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
-                                <i class="fa fa-youtube text-white"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Travel Tips -->
-                    <div class="bg-accent/20 border border-accent rounded-2xl p-8">
-                        <h3 class="text-xl font-bold mb-4">Travel Tips</h3>
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-center">
-                                <i class="fa fa-check text-accent mr-2"></i>
-                                Best time to visit: March-November
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fa fa-check text-accent mr-2"></i>
-                                Visa: Apply 1-2 months in advance
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fa fa-check text-accent mr-2"></i>
-                                Language: English available at major attractions
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fa fa-check text-accent mr-2"></i>
-                                Currency: Chinese Yuan (CNY)
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-black text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                            <i class="fa fa-pagelines text-white text-lg"></i>
-                        </div>
-                        <span class="text-2xl font-bold">Wuhan Explorer</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">
-                        Your trusted guide to discovering the beauty and culture of Wuhan, China.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fa fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#attractions" class="text-gray-400 hover:text-white transition-colors">Attractions</a></li>
-                        <li><a href="#food" class="text-gray-400 hover:text-white transition-colors">Food</a></li>
-                        <li><a href="#experiences" class="text-gray-400 hover:text-white transition-colors">Experiences</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Services</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Guided Tours</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Hotel Booking</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Transportation</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cultural Experiences</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Custom Itineraries</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
-                    <p class="text-gray-400 mb-4">Subscribe for the latest updates and exclusive offers.</p>
-                    <form class="space-y-2">
-                        <input type="email" 
-                               placeholder="Your email" 
-                               class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-sm focus:outline-none focus:ring-2 focus:ring-accent">
-                        <button type="submit" 
-                                class="w-full bg-accent hover:bg-accent/90 text-white py-2 px-3 rounded text-sm transition-colors">
-                            Subscribe
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Wuhan Explorer. All rights reserved. | Designed for international travelers</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button id="backToTop" 
-            class="fixed bottom-8 right-8 w-12 h-12 bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg transition-all duration-300 transform translate-y-20 opacity-0">
-        <i class="fa fa-chevron-up"></i>
-    </button>
-
-    <!-- Success Modal -->
-    <div id="successModal" 
-         class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center">
-        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
-            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fa fa-check text-green-500 text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-4 text-gray-800">Thank You!</h3>
-            <p class="text-gray-600 mb-6">
-                Your information has been submitted successfully. We'll send you our free Wuhan travel guide shortly!
-            </p>
-            <button id="closeModal" 
-                    class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                Close
-            </button>
-        </div>
-    </div>
-
-    <script>
-        // Navigation scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            const backToTop = document.getElementById('backToTop');
-            
-            if (window.scrollY > 100) {
-                navbar.classList.add('glass-effect');
-                backToTop.classList.remove('translate-y-20', 'opacity-0');
-            } else {
-                navbar.classList.remove('glass-effect');
-                backToTop.classList.add('translate-y-20', 'opacity-0');
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Back to top functionality
-        document.getElementById('backToTop').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show success modal
-            document.getElementById('successModal').classList.remove('hidden');
-            document.getElementById('successModal').classList.add('flex');
-            
-            // Reset form
-            this.reset();
-        });
-
-        // Close modal
-        document.getElementById('closeModal').addEventListener('click', function() {
-            document.getElementById('successModal').classList.add('hidden');
-            document.getElementById('successModal').classList.remove('flex');
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const heroImage = document.querySelector('#home img');
-            if (heroImage) {
-                heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Mobile menu toggle (if needed)
-        function toggleMobileMenu() {
-            // Add mobile menu functionality here if needed
-            console.log('Mobile menu toggled');
-        }
-
-        // Lazy loading for images
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.classList.add('opacity-100');
-                    observer.unobserve(img);
-                }
-            });
-        });
-
-        document.querySelectorAll('img').forEach(img => {
-            img.classList.add('opacity-0', 'transition-opacity', 'duration-500');
-            imageObserver.observe(img);
-        });
-    </script>
-</body>
-</html>
+                                    <p class="font
